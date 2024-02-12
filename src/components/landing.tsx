@@ -9,7 +9,7 @@ const Landing: React.FC = () => {
         <div className='grid h-[80%] w-full items-center gap-2 md:grid-cols-2'>
           <div className='leading-12 order-2 flex flex-col gap-4  text-start md:order-1'>
             <div className='flex flex-col'>
-              <span className='text-center text-[7vw] font-normal tracking-wide text-white shadow-[#8A00AC] drop-shadow-lg lg:text-start lg:text-[4rem]'>
+              <span className='text-center text-[7vw] font-normal tracking-wide text-[#000] shadow-[#8A00AC]  lg:text-start lg:text-[4rem]'>
                 ask
                 <span className='text-[10vw] font-bold md:text-[5rem] xl:text-[7rem]'>
                   Marked
