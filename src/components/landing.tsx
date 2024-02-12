@@ -1,106 +1,79 @@
 // Landing.tsx
-import React, { useState } from 'react'
+import React from 'react'
 import Image from 'next/image'
-import { Button, Progress, message as antdMessage, Popover } from 'antd'
-
-import * as handlers from '../handlers'
-import * as utils from '../utils/utils'
-import Show from './show'
 
 const Landing: React.FC = () => {
-  const [question, setQuestion] = useState('')
-  const [message1, setMessage1] = useState('')
-  const [message2, setMessage2] = useState('')
-
-  const [open, setOpen] = useState(false)
-
-  const hide = (): void => {
-    setOpen(false)
-  }
-
-  const handleOpenChange = (newOpen: boolean): void => {
-    if (
-      question.trim().length === 0 ||
-      message1.trim().length === 0 ||
-      message2.trim().length === 0
-    ) {
-      void antdMessage.error('All fields are required')
-      return
-    }
-    setOpen(newOpen)
-  }
-
   return (
-    <div className='font-poppins flex min-h-full w-full flex-col items-center justify-center gap-4 rounded-md border-2 border-[#9f9f9f0b] bg-[#9f9f9f10] px-10 py-2 text-white md:w-[30rem]'>
-      <div className='relative h-20 w-[20rem]'>
-        <Image src={'/logo.svg'} fill alt='marked' />
-      </div>
-      <span className='text-center text-sm'>
-        Personalize your messages, create shareable links, and make every
-        interaction memorable with ease!
-      </span>
-      <input
-        type='text'
-        placeholder={'GREETING'}
-        className='w-full rounded-md px-2 py-2 text-sm text-black'
-        value={question}
-        onChange={(e) => {
-          handlers.onQuestionChange(e, setQuestion, 30)
-        }}
-      />
-      <Progress
-        percent={utils.progress(question, 20)}
-        showInfo={false}
-        status={'exception'}
-      />
+    <div className='font-poppins flex min-h-screen w-[90%] flex-col items-center justify-center text-center md:w-[90%] 2xl:w-[70%]'>
+      <div className='pt-32'>
+        <div className='grid h-[80%] w-full items-center gap-2 md:grid-cols-2'>
+          <div className='leading-12 order-2 flex flex-col gap-4  text-start md:order-1'>
+            <div className='flex flex-col'>
+              <span className='text-center text-[7vw] font-normal tracking-wide text-white shadow-[#8A00AC] drop-shadow-lg lg:text-start lg:text-[4rem]'>
+                ask
+                <span className='text-[10vw] font-bold md:text-[5rem] xl:text-[7rem]'>
+                  Marked
+                </span>
+              </span>
+              <span className='text-[1rem] font-bold text-black lg:text-[1.5rem]  lg:leading-10'>
+                Whispers in the Dark: Find the Answers, No
+                <span className='text-[1.2rem] font-bold text-[#8A00AC] lg:text-[2rem]'>
+                  {' Question Marks'}
+                </span>
+              </span>
+              <span className='pt-4  text-[1rem] font-bold leading-6 text-black'>
+                AskMark:
+                <span className=' font-normal '>
+                  {
+                    ' Your shadowed question hub. Ask anything, fearlessly hidden. Join now and delve into anonymous confession with confidence in the shadows.'
+                  }
+                </span>
+              </span>
+            </div>
 
-      <input
-        type='text'
-        placeholder={'REPEATED MESSAGE '}
-        className='w-full rounded-md px-2 py-2 text-sm text-black'
-        value={message1}
-        onChange={(e) => {
-          handlers.onMessage1Change(e, setMessage1, 10)
-        }}
-      />
-      <Progress
-        percent={utils.progress(message1, 10)}
-        showInfo={false}
-        status={'exception'}
-      />
-
-      <input
-        type='text'
-        placeholder={'MESSAGE '}
-        className='w-full rounded-md px-2 py-2 text-sm text-black'
-        value={message2}
-        onChange={(e) => {
-          handlers.onMessage2Change(e, setMessage2, 50)
-        }}
-      />
-      <Progress
-        percent={utils.progress(message2, 30)}
-        showInfo={false}
-        status={'exception'}
-      />
-
-      <Popover
-        className='bg-[#F9C407] hover:bg-slate-600'
-        content={
-          <div>
-            <Show question={question} message1={message1} message2={message2} />
-            <a onClick={hide}>Close</a>
+            <div className='flex w-full flex-col   items-center justify-center gap-2 text-[.8rem] text-white  md:flex-row md:justify-start'>
+              <button className='rounded-xl bg-[#AF05D9] px-[30vw] py-[.8rem] md:px-10'>
+                SIGN IN
+              </button>
+              <button className='px rounded-xl bg-black px-[30vw] py-[.8rem]  md:px-10'>
+                SIGN UP
+              </button>
+            </div>
           </div>
-        }
-        title='Message succesfully '
-        trigger='click'
-        open={open}
-        onOpenChange={handleOpenChange}
-      >
-        <Button className='bg-[#F9C407] hover:bg-slate-600' type='primary'>
-          Create a Message
-        </Button>
-      </Popover>
+          <div className='order-1 flex items-center md:order-2'>
+            <div className='relative h-[100vw] w-[90vw] md:h-[65vh]  md:w-[30rem] xl:w-[40rem]'>
+              <Image src={'/hero.svg'} fill alt='hero' />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='px-10 py-20 font-semibold text-white'>
+        <div className='flex min-h-full  min-w-[60vw] flex-col rounded-[1.2rem] bg-[#C8AEFF]'>
+          <div className='p-2'>
+            <div className='rounded-[1rem] bg-[#8062B0] py-4'>
+              How askMarked work?
+            </div>
+          </div>
+          <div className='p-2 '>
+            <div className='flex flex-col rounded-[1rem] bg-[#8062B0] px-20 leading-8 py-4'>
+              Introducing AskMarked: the platform revolutionizing anonymous Q&A
+              sessions. <br/>AskMarked is a groundbreaking platform revolutionizing
+              anonymous Q&A sessions, allowing users to effortlessly manage and
+              curate questions through a personalized profile. By generating a
+              unique link, users can share it with their audience for anonymous
+              submissions, maintaining full control over published questions and
+              ensuring a secure and curated experience. The platform prioritizes
+              privacy, enabling users to review, post, or dismiss questions
+              while fostering open and honest engagement. AskMarked empowers
+              users to connect meaningfully, facilitating dialogue and building
+              connections without the need to reveal identities, making it an
+              ideal tool for feedback gathering, Q&A sessions, or sparking
+              discussions. Join AskMarked and redefine your online interactions
+              through a seamless and private question-and-answer experience.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
