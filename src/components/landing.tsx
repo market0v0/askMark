@@ -1,12 +1,37 @@
 // Landing.tsx
 import React from 'react'
 import Image from 'next/image'
-
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 const Landing: React.FC = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.5 // adjust as needed
+  })
+
+  const animationVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'easeInOut'
+      }
+    }
+  }
   return (
     <div className='font-poppins flex min-h-screen w-[90%] flex-col items-center justify-center text-center md:w-[90%] 2xl:w-[70%]'>
       <div className='pt-32'>
-        <div className='grid h-[80%] w-full items-center gap-2 md:grid-cols-2'>
+          <motion.div
+          className='grid h-[80%] w-full items-center gap-2 md:grid-cols-2'
+          ref={ref}
+          initial='hidden'
+          animate={inView ? 'visible' : 'hidden'}
+          variants={animationVariants}
+        >
           <div className='leading-12 order-2 flex flex-col gap-4  text-start md:order-1'>
             <div className='flex flex-col'>
               <span className='text-center text-[7vw] font-normal tracking-wide text-[#000] shadow-[#8A00AC]  lg:text-start lg:text-[4rem]'>
@@ -45,17 +70,17 @@ const Landing: React.FC = () => {
               <Image src={'/hero.svg'} fill alt='hero' />
             </div>
           </div>
-        </div>
+          </motion.div>
       </div>
-      <div className='px-10 py-20 font-semibold text-white'>
+      <div className='md:px-10 px-2 py-20  font-semibold text-white'>
         <div className='flex min-h-full  min-w-[60vw] flex-col rounded-[1.2rem] bg-[#C8AEFF]'>
           <div className='p-2'>
             <div className='rounded-[1rem] bg-[#8062B0] py-4'>
               How askMarked work?
             </div>
           </div>
-          <div className='p-2 '>
-            <div className='flex flex-col rounded-[1rem] bg-[#8062B0] px-20 leading-8 py-4'>
+          <div className='p-2 md:text-[1rem] text-[.6rem] '>
+            <div className='flex flex-col rounded-[1rem] bg-[#8062B0] px-2 md:px-20 leading-2 md:leading-8 py-4'>
               Introducing AskMarked: the platform revolutionizing anonymous Q&A
               sessions. <br/>AskMarked is a groundbreaking platform revolutionizing
               anonymous Q&A sessions, allowing users to effortlessly manage and
