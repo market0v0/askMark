@@ -85,7 +85,7 @@ const LoginForm: React.FC = () => {
         <Button
           className='bg-[#F9C407] px-20 hover:bg-slate-600'
           type='primary'
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+      
           onClick={submitForm}
         >
           LOG IN
