@@ -1,53 +1,31 @@
 // Landing.tsx
 import React from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-import router from 'next/router'
-const Landing: React.FC = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.5 // adjust as needed
-  })
 
-  const animationVariants = {
-    hidden: {
-      opacity: 0,
-      y: 50
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: 'easeInOut'
-      }
-    }
-  }
+const Landing: React.FC = () => {
   return (
+
     <div className='font-poppins flex min-h-screen w-[90%] flex-col items-center justify-center text-center md:w-[90%] 2xl:w-[70%]'>
       <div className='pt-32'>
-          <motion.div
+          <div
           className='grid h-[80%] w-full items-center gap-2 md:grid-cols-2'
-          ref={ref}
-          initial='hidden'
-          animate={inView ? 'visible' : 'hidden'}
-          variants={animationVariants}
+
         >
-          <div className='leading-12 order-2 flex flex-col gap-4  text-start md:order-1'>
+          <div className='leading-12 order-2 flex flex-col gap-4 lg:text-start text-center md:order-1'>
             <div className='flex flex-col'>
-              <span className='text-center text-[7vw] font-normal tracking-wide text-[#000] shadow-[#8A00AC]  lg:text-start lg:text-[4rem]'>
+              <span className=' text-[7vw] font-normal tracking-wide text-[#000] shadow-[#8A00AC]   lg:text-[2rem]'>
                 ask
-                <span className='text-[10vw] font-bold md:text-[5rem] xl:text-[7rem]'>
+                <span className='text-[15vw] font-bold md:text-[4rem] xl:text-[7rem]'>
                   Marked
                 </span>
               </span>
-              <span className='text-[1rem] font-bold text-black lg:text-[1.5rem]  lg:leading-10'>
+              <span className='text-[1rem] font-bold text-black lg:text-[1.5rem] lg:leading-10'>
                 Whispers in the Dark: Find the Answers, No
                 <span className='text-[1.2rem] font-bold text-[#8A00AC] lg:text-[2rem]'>
                   {' Question Marks'}
                 </span>
               </span>
-              <span className='pt-4  text-[1rem] font-bold leading-6 text-black'>
+              <span className='pt-4  text-[1rem] lg:block hidden font-bold leading-6 text-black'>
                 AskMark:
                 <span className=' font-normal '>
                   {
@@ -62,7 +40,8 @@ const Landing: React.FC = () => {
               onClick={() => (window.location.href = '/login')}>
                 SIGN IN
               </button>
-              <button className='px rounded-xl bg-black px-[30vw] py-[.8rem]  md:px-10'>
+              <button className='px rounded-xl bg-black px-[30vw] py-[.8rem]  md:px-10'
+              onClick={() => (window.location.href = '/register')}>
                 SIGN UP
               </button>
             </div>
@@ -72,7 +51,7 @@ const Landing: React.FC = () => {
               <Image src={'/hero.svg'} fill alt='hero' />
             </div>
           </div>
-          </motion.div>
+          </div>
       </div>
       <div className='md:px-10 px-2 py-20  font-semibold text-white'>
         <div className='flex min-h-full  min-w-[60vw] flex-col rounded-[1.2rem] bg-[#C8AEFF]'>
@@ -81,7 +60,7 @@ const Landing: React.FC = () => {
               How askMarked work?
             </div>
           </div>
-          <div className='p-2 md:text-[1rem] text-[.6rem] '>
+          <div className='p-2 text-justify md:text-[1rem] text-[.6rem] '>
             <div className='flex flex-col rounded-[1rem] bg-[#8062B0] px-2 md:px-20 leading-2 md:leading-8 py-4'>
               Introducing AskMarked: the platform revolutionizing anonymous Q&A
               sessions. <br/>AskMarked is a groundbreaking platform revolutionizing
