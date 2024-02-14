@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import router from 'next/router'
 const Landing: React.FC = () => {
   const [ref, inView] = useInView({
     threshold: 0.5 // adjust as needed
@@ -57,7 +58,8 @@ const Landing: React.FC = () => {
             </div>
 
             <div className='flex w-full flex-col   items-center justify-center gap-2 text-[.8rem] text-white  md:flex-row md:justify-start'>
-              <button className='rounded-xl bg-[#AF05D9] px-[30vw] py-[.8rem] md:px-10'>
+              <button className='rounded-xl bg-[#AF05D9] px-[30vw] py-[.8rem] md:px-10'
+              onClick={() => (window.location.href = '/login')}>
                 SIGN IN
               </button>
               <button className='px rounded-xl bg-black px-[30vw] py-[.8rem]  md:px-10'>
