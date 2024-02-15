@@ -11,7 +11,7 @@ const Landing: React.FC = () => {
           className='grid h-[80%] w-full items-center gap-2 md:grid-cols-2'
 
         >
-          <div className='leading-12 order-2 flex flex-col gap-4 lg:text-start text-center md:order-1'>
+          <div className='leading-12 order-2 flex flex-col gap-4 md:text-start text-center md:order-1'>
             <div className='flex flex-col'>
               <span className=' text-[7vw] font-normal tracking-wide text-[#000] shadow-[#8A00AC]   lg:text-[2rem]'>
                 ask

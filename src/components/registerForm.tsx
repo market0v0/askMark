@@ -3,7 +3,6 @@ import { message } from 'antd'
 import Image from 'next/image'
 import * as handlers from '../handlers'
 import DefaultLayout from './layout/default'
-import useStores from '@/core/UseStores'
 import { setToken } from '@/core/redux/action'
 import usePostData from '@/hooks/usePostData'
 import router from 'next/router'
@@ -17,14 +16,12 @@ const RegisterForm: React.FC = () => {
   const [password, setPassword] = useState('')
   const [checkpassword, setCheckPassword] = useState('')
 
-  const { authStore } = useStores()
   const { data, handlePostRequest } = usePostData(
     `${config.BACKEND_ENDPOINT}/create_user`
   )
 
   async function submitForm (): Promise<void> {
     if (password === checkpassword) {
-      console.log('test')
       const bodyObj = {
         email,
         username,
@@ -40,7 +37,6 @@ const RegisterForm: React.FC = () => {
   }
 
   useEffect(() => {
-    console.log('Data received:', data)
 
     if (data === null || data === undefined) {
       return
@@ -56,17 +52,16 @@ const RegisterForm: React.FC = () => {
 
     dispatch(setToken(data.token))
     /* authStore.loginUser(data) */
-    console.log('yawa', authStore.userProfile)
     void router.replace('/home')
   }, [data])
   return (
     <DefaultLayout>
     <div className='font-poppins flex min-h-full drop-shadow-lg pb-4  w-full flex-col items-center justify-center gap-4 rounded-[2rem] border-2 border-[#00000009] bg-[#231B8610]  py-2 text-white md:w-[30rem]'>
-      <div className='relative h-20 w-[25rem]'>
+      <div className='relative h-20  w-[80vw] md:w-[25rem]'>
         <Image src={'/log.svg'} fill alt='marked' />
       </div>
 
-      <div className='flex flex-col gap-2 w-[80%] px-4'>
+      <div className='flex flex-col gap-2 w-[90%] '>
         <input
           type='email'
           placeholder={'Email'}

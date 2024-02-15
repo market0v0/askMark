@@ -33,7 +33,6 @@ const Show: React.FC<ShowProps> = ({ question, message1, message2 }) => {
       void navigator.clipboard.writeText(url)
       void message.success('URL copied to clipboard')
     } catch (err) {
-      console.error('Failed to copy URL to clipboard', err)
       void message.error('Failed to copy URL to clipboard')
     }
   }

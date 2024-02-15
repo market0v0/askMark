@@ -1,5 +1,5 @@
 import React, { type ReactElement } from 'react'
-import Nav from '../nav'
+import Header from '../header'
 
 interface props {
   children?: ReactElement | null
@@ -8,7 +8,7 @@ interface props {
 function DefaultLayout ({ children }: props): React.ReactElement {
   return (
     <div>
-      <Nav/>
+      <Header/>
       <div >{children}</div>
     </div>
   )

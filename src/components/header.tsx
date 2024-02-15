@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import Image from 'next/image'
 
-const Nav: React.FC = () => {
+const Header: React.FC = () => {
   return (
     <div className={'absolute left-0 right-0 top-6 md:px-[8vw] px-[2vw] z-50 flex'}>
       <div className='color-white flex min-h-[6rem] w-full items-center justify-between'>
@@ -18,4 +18,4 @@ const Nav: React.FC = () => {
   )
 }
 
-export default Nav
+export default Header

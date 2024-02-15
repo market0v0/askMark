@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux'
-
-type checkTokenReturnType = null | string
+import { keys } from '../enums'
+type checkTokenReturnType = '' | string
 
 function checkToken (): checkTokenReturnType {
-  const token = useSelector((state: { token: any }) => state.token)
-  return token
+  return JSON.parse(sessionStorage.getItem(keys.AUTH_TOKEN_KEY) ?? '').token.toString() ?? ''
 }
+
 
 export default checkToken
