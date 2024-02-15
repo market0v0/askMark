@@ -8,7 +8,7 @@ const Landing: React.FC = () => {
     <div className='font-poppins flex min-h-screen w-[90%] flex-col items-center justify-center text-center md:w-[90%] 2xl:w-[70%]'>
       <div className='pt-32'>
           <div
-          className='grid h-[80%] w-full items-center gap-2 md:grid-cols-2'
+          className='grid h-[80%] w-full items-center lg:gap-6 md:grid-cols-2'
 
         >
           <div className='leading-12 order-2 flex flex-col gap-4 md:text-start text-center md:order-1'>
@@ -19,7 +19,7 @@ const Landing: React.FC = () => {
                   Marked
                 </span>
               </span>
-              <span className='text-[1rem] font-bold text-black lg:text-[1.5rem] lg:leading-10'>
+              <span className='text-[1rem] font-bold text-black lg:text-[1.8rem] lg:leading-10'>
                 Whispers in the Dark: Find the Answers, No
                 <span className='text-[1.2rem] font-bold text-[#8A00AC] lg:text-[2rem]'>
                   {' Question Marks'}

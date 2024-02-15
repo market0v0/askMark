@@ -4,6 +4,7 @@ import { config } from '../../config'
 import useLazyFetchData from '@/hooks/useLazyFetchData'
 import checkToken from '@/utils/functions/checkToken'
 import DefaultLayout from '@/components/layout/default'
+import QForm from '@/components/questions/questionHolder'
 
 const Login: React.FC = () => {
   const [question, setQuestion] = useState<any>()
@@ -26,7 +27,7 @@ const Login: React.FC = () => {
   return (
     <DefaultLayout>
       <div className='font-poppins px-2 flex min-h-[100vh] items-center justify-center bg-[#000B28] bg-gradient-to-br'>
-        
+          <QForm/>
       </div>
     </DefaultLayout>
 

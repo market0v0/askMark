@@ -9,7 +9,7 @@ const Header: React.FC = () => {
       <div className='relative h-16 w-[20rem]'>
           <Image src={'/markedLogo.svg'} fill alt='marked' />
         </div>
-        <div className='relative h-16 w-[8rem]'>
+        <div className='relative h-16 w-[6.5rem]'>
           <Image src={'/menu.svg'} fill alt='marked' />
         </div>
 

@@ -48,7 +48,6 @@ const LoginForm: React.FC = () => {
   }, [data])
 
   return (
-    <DefaultLayout>
       <div className='font-poppins flex min-h-full w-full flex-col  items-center justify-center gap-4 rounded-[2rem] border-2 border-[#00000009] bg-[#231B8610] py-2 pb-4  text-white drop-shadow-lg md:w-[30rem]'>
         <div className='relative h-20 w-[80vw] md:w-[25rem]'>
           <Image src={'/log.svg'} fill alt='marked' />
@@ -93,7 +92,7 @@ const LoginForm: React.FC = () => {
         </button> */}
         </div>
       </div>
-    </DefaultLayout>
+   
   )
 }
 
