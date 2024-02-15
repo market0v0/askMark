@@ -1,9 +1,13 @@
 import { useSelector } from 'react-redux'
 import { keys } from '../enums'
-type checkTokenReturnType = '' | string
+type checkTokenReturnType = null | string
 
 function checkToken (): checkTokenReturnType {
-  return JSON.parse(sessionStorage.getItem(keys.AUTH_TOKEN_KEY) ?? '').token.toString() ?? ''
+  const value = sessionStorage.getItem('persist:TOKEN');
+
+  const parsedValue = JSON.parse(value ?? '');
+  const token = parsedValue.token.replace(/"/g, '');
+  return token
 }
 
 

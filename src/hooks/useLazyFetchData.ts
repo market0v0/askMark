@@ -25,8 +25,8 @@ export default function useLazyFetchData (endpoint: string): useLazyFetchReturnT
   }, [])
 
   async function lazyFetch (): Promise<any> {
-   const token = checkToken() ?? ''
-
+    
+    console.log(checkToken())
     setFetchedStates({
       ...fetchStates,
       loading: true
@@ -38,7 +38,7 @@ export default function useLazyFetchData (endpoint: string): useLazyFetchReturnT
         mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: token
+          Authorization: `${checkToken() ?? ''}`
         }
       })
       const retrivedData = await res.json()
