@@ -9,14 +9,16 @@ interface fetchStateTypes {
 
 type useLazyFetchReturnType = [() => Promise<any>, fetchStateTypes]
 
-export default function useLazyFetchData (endpoint: string): useLazyFetchReturnType {
+export default function useLazyFetchData (
+  endpoint: string
+): useLazyFetchReturnType {
   const [fetchStates, setFetchedStates] = useState<fetchStateTypes>({
     loading: false,
     data: null
   })
 
   useEffect(() => {
-    setFetchedStates(prev => {
+    setFetchedStates((prev) => {
       return {
         ...prev,
         loading: true
@@ -25,7 +27,6 @@ export default function useLazyFetchData (endpoint: string): useLazyFetchReturnT
   }, [])
 
   async function lazyFetch (): Promise<any> {
-    
     console.log(checkToken())
     setFetchedStates({
       ...fetchStates,

@@ -37,7 +37,6 @@ const RegisterForm: React.FC = () => {
   }
 
   useEffect(() => {
-
     if (data === null || data === undefined) {
       return
     }
