@@ -26,7 +26,7 @@ const Login: React.FC = () => {
 
   return (
     <DefaultLayout>
-      <div className='font-poppins px-2 flex min-h-[100vh] items-center justify-center bg-[#000B28] bg-gradient-to-br'>
+      <div className='font-poppins px-2 flex min-h-screen items-center justify-center bg-[#000B28] bg-gradient-to-br'>
           <QForm/>
       </div>
     </DefaultLayout>

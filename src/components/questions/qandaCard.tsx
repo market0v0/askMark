@@ -15,20 +15,22 @@ const QandACarD: React.FC<QuestionProps> = ({ question, message }) => {
   }
 
   return (
-    <div className='font-poppins flex min-h-full w-[20rem] flex-col items-center justify-center gap-4 rounded-md border-2 border-[#9f9f9f0b] bg-[#212635e8] px-10 py-2 font-bold text-white'>
-      <div className='relative h-8 w-full  px-2 py-4 border-b-2 border-[#9f9f9fd5]'>
-        <Image src={'/logo.svg'} fill alt='marked' />
+    <div className='font-poppins rounded-2xl p-2 flex lg:flex-row flex-col bg-[#8062B0]  '>
+      
+      <div className='flex lg:w-[80%]   items-center col-span-3'>
+        <div className='relative h-[3rem] sm:w-[4rem] w-[8rem]'>
+          <Image src={'/q.svg'} fill alt='marked' />
+        </div>
+        <span className='px-4'>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et ?
+        </span>
       </div>
-      <div className='px-10 py-2'>{question}</div>
-      {showMessage && <div className='w-[10rem] text-center px-2 py-2 bg-slate-700 rounded-md'>{message}</div>}
-      <div className='flex gap-2'>
-        <Button
-          className='bg-[#F9C407] w-[15rem] font-semibold text-white'
-          onClick={handleButtonClick}
-        >
-          Read Message
-        </Button>
+      <div className='flex w-[20%] items-center bg-[#030105] col-span-3'>
+        marksd
       </div>
+    
+     
+
     </div>
   )
 }

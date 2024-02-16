@@ -16,6 +16,10 @@
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
 }
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
 @keyframes fade-in {
   0% {
     opacity: 0;
