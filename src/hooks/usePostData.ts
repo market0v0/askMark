@@ -34,7 +34,7 @@ export default function usePostData (endpoint: string): UsePostDataReturnType {
       mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${checkToken() ?? ''}`
+        Authorization: `${checkToken() ?? ''}`
       },
       body: JSON.stringify(filter)
     })

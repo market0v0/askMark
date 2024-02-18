@@ -9,15 +9,12 @@ const QForm: React.FC = () => {
       <div className='flex pt-2 lg:flex-row flex-col gap-2 w-[98%] lg:items-center justify-between'>
         <div className='flex lg:flex-row flex-col gap-2'>
           <SecondaryBtn execute={function (): void {
-            console.log('test')
           }} label={'UNANSWERED'} />
           <SecondaryBtn execute={function (): void {
-            console.log('test')
           }} label={'DATE CREATED'} />
         </div>
 
         <PrimaryBtn execute={function (): void {
-          console.log('test')
         }} label={'GENERATE LINK'} />
       </div>
 

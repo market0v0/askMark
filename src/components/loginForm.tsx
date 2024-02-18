@@ -29,7 +29,6 @@ const LoginForm: React.FC = () => {
   }
 
   useEffect(() => {
-
     if (data === null || data === undefined) {
       return
     }
@@ -92,7 +91,7 @@ const LoginForm: React.FC = () => {
         </button> */}
         </div>
       </div>
-   
+
   )
 }
 

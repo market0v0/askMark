@@ -5,6 +5,7 @@ import useLazyFetchData from '@/hooks/useLazyFetchData'
 import checkToken from '@/utils/functions/checkToken'
 import DefaultLayout from '@/components/layout/default'
 import QForm from '@/components/questions/questionHolder'
+import router from 'next/router'
 
 const Login: React.FC = () => {
   const [question, setQuestion] = useState<any>()
@@ -14,15 +15,16 @@ const Login: React.FC = () => {
   )
 
   useEffect(() => {
-    if (checkToken() == null) return
+    if (checkToken() == null) {
+      void router.replace('/')
+      return
+    }
     const run = async (): Promise<void> => {
       const questions = await getQuestion()
       setQuestion(questions)
     }
     void run()
   }, [checkToken()])
-  console.log(question)
-
 
   return (
     <DefaultLayout>

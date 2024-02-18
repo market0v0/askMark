@@ -1,5 +1,5 @@
 import checkToken from '@/utils/functions/checkToken'
-import { message } from 'antd'
+import router from 'next/router'
 import { useEffect, useState } from 'react'
 
 interface fetchStateTypes {
@@ -27,7 +27,6 @@ export default function useLazyFetchData (
   }, [])
 
   async function lazyFetch (): Promise<any> {
-    console.log(checkToken())
     setFetchedStates({
       ...fetchStates,
       loading: true
@@ -43,14 +42,13 @@ export default function useLazyFetchData (
         }
       })
       const retrivedData = await res.json()
-
       setFetchedStates({
         data: retrivedData,
         loading: false
       })
       return retrivedData
     } catch (error: any) {
-      void message.error(error)
+      void router.replace('/')
     }
   }
 
