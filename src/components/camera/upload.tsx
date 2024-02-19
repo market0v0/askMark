@@ -61,7 +61,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onUpload }) => {
       />
        {imagePreview != null || (
       <button
-         className='flex min-h-[20rem] w-[30rem] flex-col items-center justify-center rounded-lg bg-[#c8c8c8] hover:bg-[#8f8f8f]'
+         className='flex min-h-[20rem] md:w-[30rem] w-[87vw] flex-col items-center justify-center rounded-lg bg-[#c8c8c8] hover:bg-[#8f8f8f]'
         onClick={() => {
           if (fileInputRef.current != null) {
             fileInputRef.current.click()

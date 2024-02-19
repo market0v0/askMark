@@ -42,7 +42,7 @@ export const LayoutImg: React.FC = () => {
             src={imagePreview}
             alt='Uploaded'
             style={{ maxWidth: '100%' }}
-            className='flex min-h-[20rem] w-[30rem] items-center justify-center rounded-lg bg-[#c8c8c8] hover:bg-[#8f8f8f]'
+            className='flex min-h-auto md:w-[30rem] w-[90vw] items-center justify-center rounded-lg bg-[#c8c8c8] hover:bg-[#8f8f8f]'
           />
         )}
       </div>
