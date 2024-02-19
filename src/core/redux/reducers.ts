@@ -1,5 +1,4 @@
 // reducers.js
-import { combineReducers } from 'redux'
 import { SET_TOKEN } from './action'
 
 /* const usernameReducer = (state = '', action: { type: any, payload: any }): any => {
@@ -10,8 +9,11 @@ import { SET_TOKEN } from './action'
       return state
   }
 } */
+const initialState = {
+  token: null // or initial token value
+}
 
-const tokenReducer = (state = '', action: { type: any, payload: any }): any => {
+const tokenReducer = (state = initialState, action: { type: any, payload: any }): any => {
   switch (action.type) {
     case SET_TOKEN:
       return action.payload
@@ -20,9 +22,6 @@ const tokenReducer = (state = '', action: { type: any, payload: any }): any => {
   }
 }
 
-const rootReducer = combineReducers({
-  /*  username: usernameReducer, */
-  token: tokenReducer
-})
+const rootReducer = tokenReducer
 
 export default rootReducer

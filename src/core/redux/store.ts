@@ -9,7 +9,6 @@ export const persistConfig = {
   key: 'TOKEN',
   storage
 }
-
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = createStore(persistedReducer)
