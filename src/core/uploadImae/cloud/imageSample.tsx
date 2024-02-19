@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+/* import { useState, useRef } from "react";
 import { fileUpload } from "./useAzureFileUpload";
 
 // Filepond Plugin imports
@@ -95,3 +95,4 @@ function App() {
 }
 
 export default App;
+ */
