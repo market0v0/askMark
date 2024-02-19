@@ -22,6 +22,6 @@ const tokenReducer = (state = initialState, action: { type: any, payload: any })
   }
 }
 
-const rootReducer = tokenReducer
+const rootReducer = tokenReducer ?? ''
 
 export default rootReducer
