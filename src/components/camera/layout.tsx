@@ -5,14 +5,21 @@ import CameraComponent from './camera'
 import PrimaryBtn from '../inputs/primaryBtn'
 import SecondaryBtn from '../inputs/secondary'
 import useImageDownload from '@/core/uploadImae/local/imageDownload'
+import { message } from 'antd'
 
 export const LayoutImg: React.FC = () => {
   const { imagePreview, setImagePreview } = useImageContext()
   const [openCam, setOpenCam] = useState<boolean>(false)
   const { downloadImage } = useImageDownload()
-  const takePicture = (): void => {
-    setOpenCam(!openCam)
-    setImagePreview(null)
+  const takePicture = async (): Promise<void> => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      stream.getTracks().forEach(track => track.stop());
+      setOpenCam(!openCam);
+      setImagePreview(null);
+    } catch (error) {
+      void message.error('No Camera Available')
+    }
   }
   const savePicture = (): void => {
     setOpenCam(!openCam)
@@ -63,19 +70,10 @@ export const LayoutImg: React.FC = () => {
             >
               Save
             </button>
-            /*  <PrimaryBtn
-              execute={() => downloadImage(imagePreview)}
-              label={'Take a Photo'}
-            /> */
+    
           )}
         </div>
       )}
-      {/*    {(openCam && imagePreview != null) && (
-        <div className='flex w-full justify-between text-white'>
-          <PrimaryBtn execute={savePicture} label={'Save'} />
-          <SecondaryBtn execute={retakePicture} label={'Retake'} />
-        </div>
-      )} */}
     </div>
   )
 }
