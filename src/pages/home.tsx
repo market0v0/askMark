@@ -8,8 +8,8 @@ import QForm from '@/components/questions/questionHolder'
 import router from 'next/router'
 
 const Login: React.FC = () => {
-  const [question, setQuestion] = useState<any>()
-  const [getQuestion, data] = useLazyFetchData(
+  const [setQuestion] = useState<any>()
+  const [getQuestion] = useLazyFetchData(
     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     `${config.BACKEND_ENDPOINT}/questions`
   )

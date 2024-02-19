@@ -17,7 +17,6 @@ export const LayoutImg: React.FC = () => {
     setOpenCam(!openCam)
   }
   const retakePicture = (): void => {
-    setOpenCam(true)
     setImagePreview(null)
   }
   return (
@@ -25,8 +24,12 @@ export const LayoutImg: React.FC = () => {
       <div>
         {openCam && (
           <div>
-            <div onClick={takePicture}>Upload a photo </div>
             <CameraComponent />
+            <div className='flex w-full justify-between text-white'>
+          {imagePreview != null && (
+             <PrimaryBtn execute={savePicture} label={'Done'} />
+          )}
+            </div>
           </div>
         )}
         {!openCam && (
@@ -45,15 +48,18 @@ export const LayoutImg: React.FC = () => {
       </div>
       {!openCam && (
         <div className='flex w-full justify-between text-white'>
-          <PrimaryBtn execute={takePicture} label={'Take a Photo'} />s{' '}
+          <PrimaryBtn execute={takePicture} label={'Take a Photo'} />
+          {imagePreview != null && (
+            <SecondaryBtn execute={retakePicture} label={'Choose anotther'}/>
+          )}
         </div>
       )}
-      {(openCam && imagePreview != null) && (
+   {/*    {(openCam && imagePreview != null) && (
         <div className='flex w-full justify-between text-white'>
           <PrimaryBtn execute={savePicture} label={'Save'} />
           <SecondaryBtn execute={retakePicture} label={'Retake'} />
         </div>
-      )}
+      )} */}
     </div>
   )
 }
