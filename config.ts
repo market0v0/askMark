@@ -10,5 +10,5 @@ interface configTypes {
 export const config: configTypes = {
 
   /*   BACKEND_ENDPOINT: process.env.NEXT_PUBLIC_BACKEND_ENDPOINT ?? 'http://localhost:8989' */
-  BACKEND_ENDPOINT: process.env.NEXT_PUBLIC_BACKEND_ENDPOINT ?? 'http://127.0.0.1:5000'
+  BACKEND_ENDPOINT: process.env.NEXT_PUBLIC_BACKEND_ENDPOINT ?? 'https://askmark.onrender.com'
 }

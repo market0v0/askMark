@@ -27,7 +27,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onUpload }) => {
   }
 
   const handleImage = (file: File): any => {
-    if (!file.type.includes('image')) {
+    if (!file.type.includes('image/png') && !file.type.includes('image/jpeg')) {
       void message.error('Please upload an image file (png, jpeg, etc.)')
       return
     }
