@@ -18,9 +18,9 @@ const CustomDropdown: React.FC<NavigationProps> = ({ onButtonClick }) => {
     }
   }
 
-  const handleButtonClick = (): any => {
+  /*   const handleButtonClick = (): any => {
     setIsOpen(!isOpen)
-  }
+  } */
 
   useEffect(() => {
     document.addEventListener('click', closeDropdown)
@@ -39,7 +39,6 @@ const CustomDropdown: React.FC<NavigationProps> = ({ onButtonClick }) => {
       </div>
       {isOpen && (
         <div className='absolute top-full right-0 bg-black p-2 border border-gray-700 rounded'>
-        
         </div>
       )}
     </div>

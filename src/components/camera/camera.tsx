@@ -16,7 +16,7 @@ const CameraComponent: React.FC = () => {
 
   return (
     <div className='items items  rounded-lg bg-slate-600'>
-      <div className='h-auto w-[30rem]'>
+      <div className='h-auto md:w-[30rem] w-[87vw]'>
         {imagePreview == null && (
           <div className='flex flex-col   items-center justify-center'>
             <Webcam

@@ -7,7 +7,7 @@ import usePostData from '@/hooks/usePostData'
 import router from 'next/router'
 import { setToken } from '../core/redux/action'
 import { useDispatch } from 'react-redux'
-import DefaultLayout from './layout/default'
+/* import DefaultLayout from './layout/default' */
 
 const LoginForm: React.FC = () => {
   const dispatch = useDispatch()

@@ -1,5 +1,5 @@
 import { message } from 'antd'
-import React from 'react'
+import React, { useRef } from 'react'
 import { useImageContext } from '../context/imageContext'
 
 interface ImageUploaderProps {
@@ -7,6 +7,7 @@ interface ImageUploaderProps {
 }
 
 const ImageUploader: React.FC<ImageUploaderProps> = ({ onUpload }) => {
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const { imagePreview, setImagePreview } = useImageContext()
 
   const handleDrop = (event: React.DragEvent<HTMLDivElement>): void => {
@@ -25,7 +26,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onUpload }) => {
   }
 
   const handleImage = (file: File): any => {
-    if (!file.type.includes('image')) {
+    if (!file.type.includes('image/png') && !file.type.includes('image/jpeg')) {
       void message.error('Please upload an image file (png, jpeg, etc.)')
       return
     }
@@ -55,22 +56,20 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onUpload }) => {
         onChange={handleImageSelect}
         style={{ display: 'none' }}
         id='imageInput'
+        ref={fileInputRef}
       />
-      {imagePreview != null || (
-        <label
-          htmlFor='imageInput'
-          className='flex min-h-[20rem] w-[30rem] flex-col items-center justify-center rounded-lg bg-[#c8c8c8] hover:bg-[#8f8f8f]'
-        >
-          Drag & Drop or Click to Select an Image
-          <span className='text-[0.7rem]'>
-            File must end with .png or .jpeg and does not exceed 2mb
-          </span>
-        </label>
-      )}
-         <label
-          htmlFor='imageInput'
-          className=''
-        >,arl</label>
+       {imagePreview != null || (
+      <button
+         className='flex min-h-[20rem] md:w-[30rem] w-[87vw] flex-col items-center justify-center rounded-lg bg-[#c8c8c8] hover:bg-[#8f8f8f]'
+        onClick={() => {
+          if (fileInputRef.current != null) {
+            fileInputRef.current.click()
+          }
+        }}
+      >
+        Drag & Drop or Click to Select an Image
+      </button>
+       )}
     </div>
   )
 }
