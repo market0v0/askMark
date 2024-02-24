@@ -40,5 +40,3 @@ export const Preview: React.FC<previewProps> = ({ image, closeLabel }) => {
     </div>
   )
 }
-
-export default Preview

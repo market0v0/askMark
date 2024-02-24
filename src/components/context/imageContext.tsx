@@ -23,7 +23,6 @@ export const ImagePreviewProvider: React.FC<{ children: ReactNode }> = ({
   )
 }
 
-// Custom hook to easily access the context values
 export const useImageContext = (): any => {
   const context = useContext(ImagePreviewContext)
   if (context == null) {

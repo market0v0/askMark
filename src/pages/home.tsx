@@ -9,7 +9,7 @@ import router from 'next/router'
 
 const Login: React.FC = () => {
   const [question, setQuestion] = useState<any>()
-  const [getQuestion, data] = useLazyFetchData(
+  const [getQuestion, data, error] = useLazyFetchData(
     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     `${config.BACKEND_ENDPOINT}/questions`
   )
@@ -20,8 +20,13 @@ const Login: React.FC = () => {
       return
     }
     const run = async (): Promise<void> => {
-      const questions = await getQuestion()
-      setQuestion(questions)
+      try {
+        const questions = await getQuestion()
+        setQuestion(questions)
+      } catch (error) {
+        console.error('Error fetching questions:', error)
+        void router.replace('/') // Redirect to "/" in case of error
+      }
     }
     void run()
   }, [checkToken()])
@@ -29,10 +34,13 @@ const Login: React.FC = () => {
   return (
     <DefaultLayout>
       <div className='font-poppins px-2 flex min-h-screen items-center justify-center bg-[#000B28] bg-gradient-to-br'>
+        {error ? (
+          <p>An error occurred while fetching questions. Redirecting...</p>
+        ) : (
           <QForm/>
+        )}
       </div>
     </DefaultLayout>
-
   )
 }
 

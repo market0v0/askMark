@@ -1,7 +1,6 @@
 import { message } from 'antd'
 import React from 'react'
 import { useImageContext } from '../context/imageContext'
-import PrimaryBtn from '../inputs/primaryBtn'
 
 interface ImageUploaderProps {
   onUpload: (image: File) => void
@@ -23,9 +22,6 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onUpload }) => {
     if (file != null) {
       handleImage(file)
     }
-  }
-  const retakePicture = (): void => {
-    setImagePreview(null)
   }
 
   const handleImage = (file: File): any => {
