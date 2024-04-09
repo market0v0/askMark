@@ -1,13 +1,11 @@
 import { message } from 'antd'
 import React, { useRef } from 'react'
 import { useImageContext } from '../context/imageContext'
-/* import PrimaryBtn from '../inputs/primaryBtn' */
 
-interface ImageUploaderProps {
-  onUpload: (image: File) => void
-}
 
-const ImageUploader: React.FC<ImageUploaderProps> = ({ onUpload }) => {
+
+
+const ImageUploader: React.FC = ({}) => {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const { imagePreview, setImagePreview } = useImageContext()
 
@@ -40,7 +38,6 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onUpload }) => {
     reader.onloadend = () => {
       const imageDataURL = reader.result as string
       setImagePreview(imageDataURL)
-      onUpload(file)
     }
     reader.readAsDataURL(file)
   }

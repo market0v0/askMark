@@ -18,8 +18,11 @@ const QForm: React.FC = () => {
         }} label={'GENERATE LINK'} />
       </div>
 
-      <div className='overflow-y-auto w-full flex flex-col'>
+      <div className='overflow-y-auto  w-full flex flex-col'>
         <div className=' flex flex-col lg:px-[2rem] px-[1rem]  gap-2'>
+          <QandACarD question={''} message={''} />
+          <QandACarD question={''} message={''} />
+          <QandACarD question={''} message={''} />
           <QandACarD question={''} message={''} />
           <QandACarD question={''} message={''} />
           <QandACarD question={''} message={''} />
