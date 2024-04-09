@@ -6,6 +6,7 @@ import checkToken from '@/utils/functions/checkToken'
 import DefaultLayout from '@/components/layout/default'
 import QForm from '@/components/questions/questionHolder'
 import router from 'next/router'
+import { message } from 'antd'
 
 const Login: React.FC = () => {
   const [question, setQuestion] = useState<any>()
@@ -15,9 +16,19 @@ const Login: React.FC = () => {
   )
 
   useEffect(() => {
-    if (checkToken() == null) {
+    try {
+      if (checkToken() == null) {
+        void router.replace('/')
+        return
+      }
+      const run = async (): Promise<void> => {
+        const questions = await getQuestion()
+        setQuestion(questions)
+      }
+      void run()
+    } catch (error: any) {
+      void message.error('Session Expired')
       void router.replace('/')
-      return
     }
     const run = async (): Promise<void> => {
       try {

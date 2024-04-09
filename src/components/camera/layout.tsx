@@ -13,10 +13,12 @@ export const LayoutImg: React.FC = () => {
   const { downloadImage } = useImageDownload()
   const takePicture = async (): Promise<void> => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      stream.getTracks().forEach(track => track.stop());
-      setOpenCam(!openCam);
-      setImagePreview(null);
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true })
+      stream.getTracks().forEach((track) => {
+        track.stop()
+      })
+      setOpenCam(!openCam)
+      setImagePreview(null)
     } catch (error) {
       void message.error('No Camera Available')
     }
@@ -66,11 +68,12 @@ export const LayoutImg: React.FC = () => {
           {imagePreview != null && (
             <button
               className='rounded-xl bg-[#f58338] px-16 py-2 text-[.8rem] hover:bg-slate-600'
-              onClick={(): void => { downloadImage(imagePreview) }}
+              onClick={(): void => {
+                downloadImage(imagePreview)
+              }}
             >
               Save
             </button>
-    
           )}
         </div>
       )}
