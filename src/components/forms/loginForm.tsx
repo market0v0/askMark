@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import * as handlers from '../handlers'
+import * as handlers from '../../handlers'
 import { Spin, message } from 'antd'
-import { config } from '../../config'
+import { config } from '../../../config'
 import usePostData from '@/hooks/usePostData'
 import router from 'next/router'
-import { setToken } from '../core/redux/action'
+import { setToken } from '../../core/redux/action'
 import { useDispatch } from 'react-redux'
 /* import DefaultLayout from './layout/default' */
 
@@ -42,7 +42,6 @@ const LoginForm: React.FC = () => {
     }
 
     dispatch(setToken(data.token))
-    /* authStore.loginUser(data) */
     void router.replace('/home')
   }, [data])
 

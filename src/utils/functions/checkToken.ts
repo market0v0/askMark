@@ -5,8 +5,8 @@ type checkTokenReturnType = null | string
 function checkToken (): checkTokenReturnType {
   const value = sessionStorage.getItem('persist:TOKEN')
 
-  const parsedValue = JSON.parse(value ?? '');
-  const token = parsedValue.token.replace(/"/g, '');
+  const parsedValue = JSON.parse(value ?? '')
+  const token = parsedValue.token.replace(/"/g, '')
   return token
 }
 

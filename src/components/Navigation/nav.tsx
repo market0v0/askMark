@@ -30,7 +30,7 @@ const CustomDropdown: React.FC<NavigationProps> = ({ onButtonClick }) => {
   }, [])
 
   return (
-    <div className='relative' ref={dropdownRef} >
+    <div className='relative h-[30rem]' ref={dropdownRef} >
       <div className='cursor-pointer' onClick={() => {
         toggleDropdown()
         onButtonClick() // Call the callback when a button is clicked
@@ -38,7 +38,7 @@ const CustomDropdown: React.FC<NavigationProps> = ({ onButtonClick }) => {
         <img src='/hamburger.svg' alt='project' width='20' height='100%' />
       </div>
       {isOpen && (
-        <div className='absolute top-full right-0 bg-black p-2 border border-gray-700 rounded'>
+        <div className=' top-full right-0 bg-black p-2 border border-gray-700 rounded'>
         </div>
       )}
     </div>

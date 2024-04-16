@@ -5,8 +5,8 @@ import Image from 'next/image'
 const Landing: React.FC = () => {
   return (
 
-    <div className='font-poppins flex min-h-screen w-[90%] flex-col items-center justify-center text-center md:w-[90%] 2xl:w-[70%]'>
-      <div className='pt-32'>
+    <div className='font-poppins flex  w-[90%] flex-col items-center  text-center md:w-[90%] 2xl:w-[70%]'>
+      <div className=''>
           <div
           className='grid h-[80%] w-full items-center lg:gap-6 md:grid-cols-2'
 
@@ -40,10 +40,10 @@ const Landing: React.FC = () => {
               onClick={() => (window.location.href = '/login')}>
                 SIGN IN
               </button>
-              <button className='px rounded-xl bg-black px-[30vw] py-[.8rem]  md:px-10'
+         {/*      <button className='px rounded-xl bg-black px-[30vw] py-[.8rem]  md:px-10'
               onClick={() => (window.location.href = '/register')}>
                 SIGN UP
-              </button>
+              </button> */}
             </div>
           </div>
           <div className='order-1 flex items-center md:order-2'>

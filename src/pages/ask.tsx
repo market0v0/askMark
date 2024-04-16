@@ -1,11 +1,11 @@
 import DefaultLayout from '@/components/layout/default'
-import RegisterForm from '@/components/forms/registerForm'
 import React from 'react'
+import AskForm from '@/components/forms/askForm'
 
 const Register: React.FC = () => {
   return (
   <DefaultLayout>
-  <div className='font-poppins px-2 flex  items-center justify-center py-20'><RegisterForm/></div>
+  <div className='font-poppins px-2 flex  items-center justify-center py-20'><AskForm/></div>
   </DefaultLayout>
   )
 }

@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 interface fetchStateTypes {
   loading: boolean
   data: unknown
+  error: any
 }
 
 type useLazyFetchReturnType = [() => Promise<any>, fetchStateTypes]
@@ -14,7 +15,8 @@ export default function useLazyFetchData (
 ): useLazyFetchReturnType {
   const [fetchStates, setFetchedStates] = useState<fetchStateTypes>({
     loading: false,
-    data: null
+    data: null,
+    error: null
   })
 
   useEffect(() => {
@@ -44,10 +46,16 @@ export default function useLazyFetchData (
       const retrivedData = await res.json()
       setFetchedStates({
         data: retrivedData,
-        loading: false
+        loading: false,
+        error: null
       })
       return retrivedData
     } catch (error: any) {
+      setFetchedStates({
+        ...fetchStates,
+        loading: false,
+        error
+      })
       void router.replace('/')
     }
   }

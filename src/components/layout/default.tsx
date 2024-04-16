@@ -7,9 +7,9 @@ interface props {
 
 function DefaultLayout ({ children }: props): React.ReactElement {
   return (
-    <div>
+    <div className='bg-gradient-to-br min-h-screen'>
       <Header/>
-      <div >{children}</div>
+      <div className='font-poppins px-2 flex items-center justify-center ' >{children}</div>
     </div>
   )
 }
