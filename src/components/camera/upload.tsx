@@ -1,9 +1,6 @@
-import { message } from 'antd'
+/* import { message } from 'antd'
 import React, { useRef } from 'react'
 import { useImageContext } from '../context/imageContext'
-
-
-
 
 const ImageUploader: React.FC = ({}) => {
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -16,7 +13,7 @@ const ImageUploader: React.FC = ({}) => {
   }
 
   const handleImageSelect = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ): void => {
     const file = event.target.files?.[0]
     if (file != null) {
@@ -56,20 +53,21 @@ const ImageUploader: React.FC = ({}) => {
         id='imageInput'
         ref={fileInputRef}
       />
-       {imagePreview != null || (
-      <button
-         className='flex min-h-[20rem] md:w-[30rem] w-[87vw] flex-col items-center justify-center rounded-lg bg-[#c8c8c8] hover:bg-[#8f8f8f]'
-        onClick={() => {
-          if (fileInputRef.current != null) {
-            fileInputRef.current.click()
-          }
-        }}
-      >
-        Drag & Drop or Click to Select an Image
-      </button>
-       )}
+      {imagePreview != null || (
+        <button
+          className='flex min-h-[20rem] w-[87vw] flex-col items-center justify-center rounded-lg bg-[#c8c8c8] hover:bg-[#8f8f8f] md:w-[30rem]'
+          onClick={() => {
+            if (fileInputRef.current != null) {
+              fileInputRef.current.click()
+            }
+          }}
+        >
+          Drag & Drop or Click to Select an Image
+        </button>
+      )}
     </div>
   )
 }
 
 export default ImageUploader
+ */

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+/* import React, { useState } from 'react'
 import { useImageContext } from '../context/imageContext'
 import PrimaryBtn from '../inputs/primaryBtn'
 import SecondaryBtn from '../inputs/secondary'
@@ -40,3 +40,4 @@ export const Preview: React.FC<previewProps> = ({ image, closeLabel }) => {
     </div>
   )
 }
+ */

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+/* import React, { useState } from 'react'
 import ImageUploader from './upload'
 import { ImagePreviewProvider, useImageContext } from '../context/imageContext'
 import CameraComponent from './camera'
@@ -90,3 +90,4 @@ const ImageLayout: React.FC = () => {
 }
 
 export default ImageLayout
+ */

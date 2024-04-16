@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+/* import React, { useRef } from 'react'
 import Webcam from 'react-webcam'
 import { useImageContext } from '../context/imageContext'
 
@@ -16,7 +16,7 @@ const CameraComponent: React.FC = () => {
 
   return (
     <div className='items items  rounded-lg bg-slate-600'>
-      <div className='h-auto md:w-[30rem] w-[87vw]'>
+      <div className='h-auto w-[87vw] md:w-[30rem]'>
         {imagePreview == null && (
           <div className='flex flex-col   items-center justify-center'>
             <Webcam
@@ -32,9 +32,9 @@ const CameraComponent: React.FC = () => {
           </div>
         )}
       </div>
-
     </div>
   )
 }
 
 export default CameraComponent
+ */
