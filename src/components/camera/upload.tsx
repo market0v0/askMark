@@ -2,10 +2,7 @@ import { message } from 'antd'
 import React, { useRef } from 'react'
 import { useImageContext } from '../context/imageContext'
 
-
-
-
-const ImageUploader: React.FC = ({}) => {
+const ImageUploader: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const { imagePreview, setImagePreview } = useImageContext()
 

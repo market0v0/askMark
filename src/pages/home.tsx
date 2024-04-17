@@ -1,4 +1,4 @@
-/* import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { config } from '../../config'
 
 import useLazyFetchData from '@/hooks/useLazyFetchData'
@@ -40,4 +40,3 @@ const Home: React.FC = () => {
 }
 
 export default Home
- */
