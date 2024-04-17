@@ -1,4 +1,4 @@
-/* import React, { useRef } from 'react'
+import React, { useRef } from 'react'
 import Webcam from 'react-webcam'
 import { useImageContext } from '../context/imageContext'
 
@@ -37,4 +37,3 @@ const CameraComponent: React.FC = () => {
 }
 
 export default CameraComponent
- */

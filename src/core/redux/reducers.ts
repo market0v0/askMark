@@ -15,7 +15,10 @@ const initialState = {
   token: null // or initial token value
 }
 
-const tokenReducer = (state = initialState, action: { type: any, payload: any }): any => {
+const tokenReducer = (
+  state = initialState,
+  action: { type: any, payload: any }
+): any => {
   switch (action.type) {
     case SET_TOKEN:
       return action.payload
@@ -26,7 +29,7 @@ const tokenReducer = (state = initialState, action: { type: any, payload: any })
 
 const rootReducer = combineReducers({
   token: tokenReducer
-}) 
+})
 /* const rootReducer = tokenReducer */
 
 export default rootReducer

@@ -1,4 +1,4 @@
-/* import React, { useState } from 'react'
+import React, { useState } from 'react'
 import ImageUploader from './upload'
 import { ImagePreviewProvider, useImageContext } from '../context/imageContext'
 import CameraComponent from './camera'
@@ -44,7 +44,7 @@ export const LayoutImg: React.FC = () => {
         )}
         {!openCam && (
           <div>
-            <ImageUploader onUpload={function (image: File): void {}} />
+            <ImageUploader />
           </div>
         )}
         {imagePreview != null && (
@@ -60,7 +60,7 @@ export const LayoutImg: React.FC = () => {
       {!openCam && (
         <div className='flex flex-col gap-2 pt-2 text-white'>
           <div className='flex w-full justify-between '>
-            <PrimaryBtn execute={takePicture} label={'Take a Photo'} />
+            <PrimaryBtn execute={() => takePicture} label={'Take a Photo'} />
             {imagePreview != null && (
               <SecondaryBtn execute={retakePicture} label={'Choose anotther'} />
             )}
@@ -90,4 +90,3 @@ const ImageLayout: React.FC = () => {
 }
 
 export default ImageLayout
- */

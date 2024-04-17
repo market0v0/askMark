@@ -31,7 +31,7 @@ const GeneratedLink: React.FC = () => {
   }, [link])
   return (
     <div>
-    {loading.loading ? <Spin /> : ((link) ? <QRCode message={link} /> : null)}
+    {loading.loading ? <Spin /> : ((link !== null && link !== undefined) ? <QRCode message={link} /> : null)}
     {/* {loading.loading ? <Spin /> : <QRCode value={link} style={{ width: '100%', height: 'auto' }} />} */}
   </div>
   )

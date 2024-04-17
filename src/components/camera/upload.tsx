@@ -1,8 +1,8 @@
-/* import { message } from 'antd'
+import { message } from 'antd'
 import React, { useRef } from 'react'
 import { useImageContext } from '../context/imageContext'
 
-const ImageUploader: React.FC = ({}) => {
+const ImageUploader: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const { imagePreview, setImagePreview } = useImageContext()
 
@@ -13,7 +13,7 @@ const ImageUploader: React.FC = ({}) => {
   }
 
   const handleImageSelect = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ): void => {
     const file = event.target.files?.[0]
     if (file != null) {
@@ -70,4 +70,3 @@ const ImageUploader: React.FC = ({}) => {
 }
 
 export default ImageUploader
- */
