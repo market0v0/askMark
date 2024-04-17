@@ -11,7 +11,7 @@ export const onQuestionChange = (
 }
 
 export const onAnswerChange = (
-  e: React.ChangeEvent<HTMLInputElement>,
+  e: React.ChangeEvent<HTMLTextAreaElement>,
   setAnswer: React.Dispatch<React.SetStateAction<string>>,
   MAX_QUESTION_LENGTH: number
 ): void => {
@@ -22,7 +22,7 @@ export const onAnswerChange = (
 }
 
 export const onAskChange = (
-  e: React.ChangeEvent<HTMLInputElement>,
+  e: React.ChangeEvent<HTMLTextAreaElement>,
   setQuestion: React.Dispatch<React.SetStateAction<string>>,
   MAX_QUESTION_LENGTH: number
 ): void => {
