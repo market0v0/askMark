@@ -30,8 +30,7 @@ export default function usePutData (endpoint: string): UsePutDataReturnType {
 
     const filter: Filter = variables ?? {}
     const token = checkToken()
-    console.log('Token:', token)
-    console.log('Endpoint:', endpoint)
+
     try {
       const response = await fetch(endpoint, {
         method: 'PUT',

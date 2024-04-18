@@ -12,7 +12,6 @@ const Home: React.FC = () => {
   const [getQuestion] = useLazyFetchData(
     `${config.BACKEND_ENDPOINT}/questions`
   )
-
   useEffect(() => {
     try {
       const run = async (): Promise<void> => {
@@ -24,10 +23,6 @@ const Home: React.FC = () => {
       void message.error('Session Expired')
     }
   }, [checkToken()])
-
-  useEffect(() => {
-    console.log(question)
-  }, [question])
 
   return (
     <DefaultLayout>

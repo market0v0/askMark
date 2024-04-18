@@ -52,7 +52,7 @@ const AskForm: React.FC = () => {
         <div className='flex w-[80%] flex-col gap-2 px-4'>
 
           <textarea
-            placeholder={'Answers'}
+            placeholder={'Ask a Question'}
             className='w-full rounded-md border-b-4 border-b-[#880AA8] px-2 py-2 text-sm text-black placeholder-[#880AA8] drop-shadow-lg'
             value={question}
             onChange={(e) => {
