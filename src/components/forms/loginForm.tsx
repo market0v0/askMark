@@ -83,7 +83,7 @@ const LoginForm: React.FC = () => {
           >
             LOG IN
           </button>
-          <span onClick={() => (window.location.href = '/register')} className='text-black text-4 font-normal'>Create an   <span className='cursor-pointer text-[#880AA8]' >{' Account '}</span>instead</span>
+          <span /* onClick={() => (window.location.href = '/register')} */ className='navtext-black text-4 font-normal'>Create an   <span className='cursor-pointer text-[#880AA8]' >{' Account '}</span>instead</span>
           {/*     <button
           className='bg-[#000] rounded-xl px-20 py-2 hover:bg-slate-600'
         >

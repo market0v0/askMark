@@ -17,6 +17,10 @@ const AskForm: React.FC = () => {
   )
 
   async function submitForm (): Promise<void> {
+    if (question.trim() === '') {
+      void message.error('Question cannot be empty')
+      return
+    }
     const bodyObj = {
       question,
       url
@@ -38,6 +42,8 @@ const AskForm: React.FC = () => {
     if (data?.error === 'User not found') {
       void message.error(data.error)
     }
+    void message.success('Question Sent')
+    setQuestion('')
   }, [data])
 
   return (
@@ -56,7 +62,7 @@ const AskForm: React.FC = () => {
             className='w-full rounded-md border-b-4 border-b-[#880AA8] px-2 py-2 text-sm text-black placeholder-[#880AA8] drop-shadow-lg'
             value={question}
             onChange={(e) => {
-              handlers.onAskChange(e, setQuestion, 30)
+              handlers.onAskChange(e, setQuestion, 50)
             }}
           />
         </div>

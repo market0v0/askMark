@@ -1,5 +1,5 @@
 import React, { type ReactElement } from 'react'
-import Header from '../header'
+import Header from '../Navigation/header'
 
 interface props {
   children?: ReactElement | null

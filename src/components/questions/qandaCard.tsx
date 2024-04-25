@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import CustomModal from '../modal'
 import AnswerForm from '../forms/answerForm'
+import { formatDate } from '@/handlers'
 
 interface QuestionProps {
   question: string
@@ -9,9 +10,10 @@ interface QuestionProps {
   status: boolean
   id: string
   answer: string
+  date: string
 }
 
-const QandACarD: React.FC<QuestionProps> = ({ question, message, id, status, answer }) => {
+const QandACarD: React.FC<QuestionProps> = ({ question, message, id, status, answer, date }) => {
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   const displayQuestion = question.length > 30 ? question.substring(0, 60) + '...' : question
@@ -38,12 +40,13 @@ const QandACarD: React.FC<QuestionProps> = ({ question, message, id, status, ans
         <div className='relative col-span-1 h-[3rem] w-full'>
           <Image src={'/q.svg'} fill alt='marked' />
         </div>
-        <span className='px-4 col-span-4'>
+        <span className='px-4 col-span-4 w-full break-words'>
           {displayQuestion}
         </span>
       </div>
-      <div className='flex min-w-full md:min-w-[20%]  justify-center items-center  '>
+      <div className='flex flex-col min-w-full md:min-w-[20%]  justify-center items-center  '>
       <button onClick={handleOpenModal} className=' rounded-2xl bg-black p-2 w-full text-[.8rem]'>View Question</button>
+      <span className='text-[.8rem]'>{formatDate(date)}</span>
         <CustomModal visible={isModalVisible} onClose={handleCloseModal}>
         <AnswerForm question={question} questionId={id} status={status} getanswer={answer} />
         </CustomModal>
