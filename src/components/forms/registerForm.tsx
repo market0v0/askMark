@@ -7,6 +7,7 @@ import usePostData from '@/hooks/usePostData'
 import router from 'next/router'
 import { config } from '../../../config'
 import { useDispatch } from 'react-redux'
+import bcrypt from 'bcryptjs'
 
 const RegisterForm: React.FC = () => {
   const dispatch = useDispatch()
@@ -20,6 +21,9 @@ const RegisterForm: React.FC = () => {
   )
 
   async function submitForm (): Promise<void> {
+    const salt = bcrypt.genSaltSync(10)
+    const hashedPassword = bcrypt.hashSync(password, salt)
+
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
     if (!emailRegex.test(email)) {
       void message.error('Please enter a valid email address')
@@ -32,7 +36,7 @@ const RegisterForm: React.FC = () => {
     const bodyObj = {
       username,
       email,
-      password
+      hashedPassword
     }
     try {
       await handlePostRequest(bodyObj)

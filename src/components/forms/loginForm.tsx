@@ -35,8 +35,8 @@ const LoginForm: React.FC = () => {
     if (data === null || data === undefined) {
       return
     }
-    if (data?.error === 'Missing required data') {
-      void message.error('Missing required data')
+    if (data?.error === '') {
+      void message.error('Invalid data')
       return
     }
     if (data?.error === 'User not found') {
