@@ -25,7 +25,10 @@ const RegisterForm: React.FC = () => {
       void message.error('Please enter a valid email address')
       return
     }
-
+    if (password !== checkpassword) {
+      void message.error('Passwords do not match')
+      return
+    }
     const bodyObj = {
       username,
       email,

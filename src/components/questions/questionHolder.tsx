@@ -24,7 +24,7 @@ const QForm: React.FC<QFormProps> = ({ questions }) => {
   const paginate = (pageNumber: number): any => { setCurrentPage(pageNumber) }
 
   return (
-    <div className='font-poppins flex max-h-[70vh] w-[95%] min-w-[80vw] flex-col items-center justify-start gap-4 rounded-[1rem] border-2 border-[#00000009] bg-[#9985DB] py-2 pb-4 text-white drop-shadow-lg md:w-[80%] md:min-w-[40rem]'>
+    <div className='font-poppins flex max-h-[70vh] w-[80vw] flex-col items-center justify-start gap-4 rounded-[1rem] border-2 border-[#00000009] bg-[#9985DB] py-2 pb-4 text-white drop-shadow-lg md:w-[80%] md:min-w-[40rem]'>
       <div className='flex w-[98%] flex-col justify-between gap-2 pt-2 lg:flex-row lg:items-center'>
         <SecondaryBtn execute={function (): void {}} label={'UNANSWERED'} />
         <CustomModal

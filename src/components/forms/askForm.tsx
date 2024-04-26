@@ -59,10 +59,10 @@ const AskForm: React.FC = () => {
 
           <textarea
             placeholder={'Ask a Question'}
-            className='w-full rounded-md border-b-4 border-b-[#880AA8] px-2 py-2 text-sm text-black placeholder-[#880AA8] drop-shadow-lg'
+            className='w-full rounded-md border-b-4 h-[8rem] border-b-[#880AA8] px-2 py-2 text-sm text-black placeholder-[#880AA8] drop-shadow-lg'
             value={question}
             onChange={(e) => {
-              handlers.onAskChange(e, setQuestion, 50)
+              handlers.onAskChange(e, setQuestion, 120)
             }}
           />
         </div>

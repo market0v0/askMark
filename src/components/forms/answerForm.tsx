@@ -101,10 +101,10 @@ const AnswerForm: React.FC<QuestionProps> = ({
           <div className='flex flex-col'>
             <textarea
               placeholder={'Answers'}
-              className='w-full rounded-md border-b-4 border-b-[#880AA8] px-2 py-2 text-sm text-black placeholder-[#880AA8] drop-shadow-lg'
+              className='w-full rounded-md h-full min-h-full-[3rem] border-b-4 border-b-[#880AA8] px-2 py-2 text-sm text-black placeholder-[#880AA8] drop-shadow-lg'
               value={answer}
               onChange={(e) => {
-                handlers.onAnswerChange(e, setAnswer, 100)
+                handlers.onAnswerChange(e, setAnswer, 120)
               }}
               disabled={isSubmitted}
             />

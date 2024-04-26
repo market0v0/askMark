@@ -7,7 +7,7 @@ import usePostData from '@/hooks/usePostData'
 import router from 'next/router'
 import { setToken } from '../../core/redux/action'
 import { useDispatch } from 'react-redux'
-/* import DefaultLayout from './layout/default' */
+import bcrypt from 'bcryptjs'
 
 const LoginForm: React.FC = () => {
   const dispatch = useDispatch()
@@ -18,9 +18,12 @@ const LoginForm: React.FC = () => {
   )
 
   async function submitForm (): Promise<void> {
+    const salt = bcrypt.genSaltSync(10)
+    const hashedPassword = bcrypt.hashSync(password, salt)
+
     const bodyObj = {
       username,
-      password
+      hashedPassword
     }
 
     try {

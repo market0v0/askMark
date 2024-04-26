@@ -1,5 +1,4 @@
 import checkToken from '@/utils/functions/checkToken'
-import router from 'next/router'
 import { useEffect, useState } from 'react'
 
 interface fetchStateTypes {
@@ -56,7 +55,6 @@ export default function useLazyFetchData (
         loading: false,
         error
       })
-      void router.replace('/')
     }
   }
 
