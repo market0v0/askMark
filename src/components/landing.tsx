@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 // Landing.tsx
 import React from 'react'
 import Image from 'next/image'
