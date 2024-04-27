@@ -7,13 +7,13 @@ import usePostData from '@/hooks/usePostData'
 import router from 'next/router'
 import { config } from '../../../config'
 import { useDispatch } from 'react-redux'
-import bcrypt from 'bcryptjs'
+import { SHA256 } from 'crypto-js'
 
 const RegisterForm: React.FC = () => {
   const dispatch = useDispatch()
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [temppassword, setTemppassword] = useState('')
   const [checkpassword, setCheckPassword] = useState('')
 
   const { data, handlePostRequest, loading } = usePostData(
@@ -21,22 +21,20 @@ const RegisterForm: React.FC = () => {
   )
 
   async function submitForm (): Promise<void> {
-    const salt = bcrypt.genSaltSync(10)
-    const hashedPassword = bcrypt.hashSync(password, salt)
-
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
     if (!emailRegex.test(email)) {
       void message.error('Please enter a valid email address')
       return
     }
-    if (password !== checkpassword) {
+    if (temppassword !== checkpassword) {
       void message.error('Passwords do not match')
       return
     }
+    const password = SHA256(temppassword).toString()
     const bodyObj = {
       username,
       email,
-      hashedPassword
+      password
     }
     try {
       await handlePostRequest(bodyObj)
@@ -48,7 +46,7 @@ const RegisterForm: React.FC = () => {
       return
     }
     if (data?.error === 'Missing required data') {
-      void message.error('Missing required data')
+      void message.error(data?.error)
       return
     }
     if (data?.error === 'User not found') {
@@ -89,9 +87,9 @@ const RegisterForm: React.FC = () => {
             type='password'
             placeholder={'Password'}
             className='w-full rounded-md border-b-4 border-b-[#880AA8] px-2 py-2 text-sm text-black placeholder-[#880AA8]'
-            value={password}
+            value={temppassword}
             onChange={(e) => {
-              handlers.onMessage1Change(e, setPassword, 10)
+              handlers.onMessage1Change(e, setTemppassword, 10)
             }}
           />
           <input

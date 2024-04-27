@@ -7,23 +7,21 @@ import usePostData from '@/hooks/usePostData'
 import router from 'next/router'
 import { setToken } from '../../core/redux/action'
 import { useDispatch } from 'react-redux'
-import bcrypt from 'bcryptjs'
+import { SHA256 } from 'crypto-js'
 
 const LoginForm: React.FC = () => {
   const dispatch = useDispatch()
   const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const [temppassword, setTempassword] = useState('')
   const { data, handlePostRequest, loading } = usePostData(
     `${config.BACKEND_ENDPOINT}/login_user`
   )
 
   async function submitForm (): Promise<void> {
-    const salt = bcrypt.genSaltSync(10)
-    const hashedPassword = bcrypt.hashSync(password, salt)
-
+    const password = SHA256(temppassword).toString()
     const bodyObj = {
       username,
-      hashedPassword
+      password
     }
 
     try {
@@ -71,9 +69,9 @@ const LoginForm: React.FC = () => {
             type='password'
             placeholder={'Password'}
             className='w-full rounded-md border-b-4 border-b-[#880AA8] px-2 py-2 text-sm text-black placeholder-[#880AA8]'
-            value={password}
+            value={temppassword}
             onChange={(e) => {
-              handlers.onMessage1Change(e, setPassword, 10)
+              handlers.onMessage1Change(e, setTempassword, 10)
             }}
           />
         </div>
