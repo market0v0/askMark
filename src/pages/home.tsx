@@ -26,13 +26,13 @@ const Home: React.FC = () => {
   }, [checkToken()])
 
   return (
-    <DefaultLayout>
-      <Spin spinning={ useValidTokenRedirect('/')}>
+    <Spin spinning={useValidTokenRedirect('/')}>
+      <DefaultLayout>
         <div className='font-poppins flex items-center  justify-center px-2 py-10'>
           <QForm questions={question} />
         </div>
-      </Spin>
-    </DefaultLayout>
+      </DefaultLayout>
+    </Spin>
   )
 }
 

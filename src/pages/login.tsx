@@ -7,13 +7,13 @@ import useValidTokenRedirect from '@/hooks/useValidationRedirect'
 
 const Login: React.FC = () => {
   return (
-    <DefaultLayout>
-      <Spin spinning={ useValidTokenRedirect('/login')}>
+    <Spin spinning={useValidTokenRedirect('/login')}>
+      <DefaultLayout>
         <div className='font-poppins flex items-center  justify-center px-2 py-20'>
           <LoginForm />
         </div>
-      </Spin>
-    </DefaultLayout>
+      </DefaultLayout>
+    </Spin>
   )
 }
 

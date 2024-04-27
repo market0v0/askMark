@@ -6,13 +6,13 @@ import { Spin } from 'antd'
 
 const Register: React.FC = () => {
   return (
-    <DefaultLayout>
-      <Spin spinning={useValidTokenRedirect('/register')}>
+    <Spin spinning={useValidTokenRedirect('/register')}>
+      <DefaultLayout>
         <div className='font-poppins flex items-center  justify-center px-2 py-20'>
           <RegisterForm />
         </div>
-      </Spin>
-    </DefaultLayout>
+      </DefaultLayout>
+    </Spin>
   )
 }
 

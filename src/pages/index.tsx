@@ -7,16 +7,13 @@ import React from 'react'
 
 const Home: React.FC = () => {
   return (
-
-    <DefaultLayout>
-      <Spin spinning={useValidTokenRedirect('/')}>
-        <div className='font-poppins px-2 flex  items-center justify-center py-20'>
-        <Landing/>
+    <Spin spinning={useValidTokenRedirect('/')}>
+      <DefaultLayout>
+        <div className='font-poppins flex items-center  justify-center px-2 py-20'>
+          <Landing />
         </div>
-      </Spin>
-
-  </DefaultLayout>
-
+      </DefaultLayout>
+    </Spin>
   )
 }
 export default Home
