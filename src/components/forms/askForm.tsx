@@ -41,6 +41,7 @@ const AskForm: React.FC = () => {
     }
     if (data?.error === 'User not found') {
       void message.error(data.error)
+      return
     }
     void message.success('Question Sent')
     setQuestion('')
