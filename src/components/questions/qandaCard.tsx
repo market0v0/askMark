@@ -25,7 +25,7 @@ const QandACarD: React.FC<QuestionProps> = ({
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   const displayQuestion =
-    question.length > 30 ? question.substring(0, 60) + '...' : question
+    question.length > 30 ? question.substring(0, 40) + '...' : question
 
   const handleOpenModal = (): void => {
     setIsModalVisible(true)
