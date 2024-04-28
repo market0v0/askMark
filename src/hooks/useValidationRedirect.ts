@@ -13,11 +13,13 @@ const useValidTokenRedirect = (link: string): boolean => {
     const run = async (): Promise<void> => {
       try {
         const valid = await validToken()
-        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions, eqeqeq
+        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+        if (!valid?.valid) {
+          void router.push(link)
+        }
+        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
         if (valid?.valid) {
           void router.push('/home')
-        } else {
-          void router.push(link)
         }
       } catch (error: any) {
         void message.error('Session Expired')
