@@ -3,6 +3,7 @@ import Image from 'next/image'
 import CustomModal from '../modal'
 import AnswerForm from '../forms/answerForm'
 import { formatDate } from '@/handlers'
+import { Badge } from 'antd'
 
 interface QuestionProps {
   question: string
@@ -13,10 +14,18 @@ interface QuestionProps {
   date: string
 }
 
-const QandACarD: React.FC<QuestionProps> = ({ question, message, id, status, answer, date }) => {
+const QandACarD: React.FC<QuestionProps> = ({
+  question,
+  message,
+  id,
+  status,
+  answer,
+  date
+}) => {
   const [isModalVisible, setIsModalVisible] = useState(false)
 
-  const displayQuestion = question.length > 30 ? question.substring(0, 60) + '...' : question
+  const displayQuestion =
+    question.length > 30 ? question.substring(0, 60) + '...' : question
 
   const handleOpenModal = (): void => {
     setIsModalVisible(true)
@@ -27,31 +36,37 @@ const QandACarD: React.FC<QuestionProps> = ({ question, message, id, status, ans
   }
 
   return (
-    <div className='font-poppins rounded-2xl p-2 flex lg:flex-row flex-col bg-[#8062B0] justify-between '>
-    {/*   <div className='flex lg:w-[80%] py-2 pt-2 items-center'>
-        <div className='relative h-[3rem] sm:w-[4rem]  w-[10rem]'>
-          <Image src={'/q.svg'} fill alt='marked' />
-        </div>
-        <span className='px-4'>
-          {displayQuestion}
-        </span>
-      </div> */}
-        <div className='grid w-full grid-cols-5 py-2 pt-2 items-center'>
+    <Badge dot={!status} color='red'>
+
+    <div className='font-poppins flex md:w-[80%] w-[72vw] md:min-w-[35rem] flex-col text-white justify-between rounded-2xl bg-[#8062B0] p-2 lg:flex-row '>
+      <div className='grid w-full grid-cols-5 items-center py-2 pt-2'>
         <div className='relative col-span-1 h-[3rem] w-full'>
           <Image src={'/q.svg'} fill alt='marked' />
         </div>
-        <span className='px-4 col-span-4 w-full break-words'>
+        <span className='col-span-4 w-full break-words px-4 '>
           {displayQuestion}
         </span>
       </div>
-      <div className='flex flex-col min-w-full md:min-w-[20%]  justify-center items-center  '>
-      <button onClick={handleOpenModal} className=' rounded-2xl bg-black p-2 w-full text-[.8rem]'>View Question</button>
-      <span className='text-[.8rem]'>{formatDate(date)}</span>
-        <CustomModal visible={isModalVisible} onClose={handleCloseModal}>
-        <AnswerForm question={question} questionId={id} status={status} getanswer={answer} />
-        </CustomModal>
+      <div className='flex min-w-full flex-col items-center  justify-center md:min-w-[20%]  '>
+        <button
+          onClick={handleOpenModal}
+          className=' w-full rounded-2xl bg-black p-2 text-[.8rem] text-white'
+        >
+          View Question
+        </button>
+        <span className='text-[.8rem]'>{formatDate(date)}</span>
       </div>
+      <CustomModal visible={isModalVisible} onClose={handleCloseModal}>
+        <AnswerForm
+          question={question}
+          questionId={id}
+          status={status}
+          getanswer={answer}
+        />
+      </CustomModal>
     </div>
+    </Badge>
+
   )
 }
 

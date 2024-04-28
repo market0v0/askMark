@@ -39,17 +39,17 @@ const DefaultNav: React.FC = () => {
       <div className='rounded-lg bg-[#8878be] p-2  text-white'>
         {useValidToken() ? (
           <div className='flex min-w-full flex-col gap-2 md:min-w-[20%] '>
-            <span className='rounded-2xl bg-[#AF05D9] p-2 text-center text-[1rem] font-bold '>
+            <span className='rounded-2xl bg-[#AF05D9] p-2 text-center text-[1rem] font-bold px-10 '>
               {truncateString(username, 10)}
             </span>
             <button
-              className=' w-full rounded-2xl bg-black p-2 text-[.8rem] hover:bg-gray-700'
+              className=' w-full rounded-2xl bg-black p-2 text-[.8rem] hover:bg-gray-700 px-10 '
             >
               Profile
             </button>
             <button
               onClick={handleLogout}
-              className=' w-full rounded-2xl bg-black p-2 text-[.8rem] hover:bg-gray-700'
+              className=' w-full rounded-2xl bg-black p-2 text-[.8rem] hover:bg-gray-700 px-10 '
             >
               Log out
             </button>
@@ -59,19 +59,19 @@ const DefaultNav: React.FC = () => {
 
             <button
               onClick={() => { handleNav('/') }}
-              className=' w-full rounded-2xl bg-black p-2 text-[.8rem] hover:bg-gray-700'
+              className=' w-full rounded-2xl bg-black p-2 text-[.8rem] hover:bg-gray-700 px-10 '
             >
               Home
             </button>
             <button
               onClick={() => { handleNav('register') }}
-              className=' w-full rounded-2xl bg-black p-2 text-[.8rem] hover:bg-gray-700'
+              className=' w-full rounded-2xl bg-black p-2 text-[.8rem] hover:bg-gray-700 px-10 '
             >
               Register
             </button>
             <button
               onClick={() => { handleNav('login') }}
-              className=' w-full rounded-2xl bg-black p-2 text-[.8rem] hover:bg-gray-700'
+              className=' w-full rounded-2xl bg-black p-2 text-[.8rem] hover:bg-gray-700 px-10 '
             >
               Login
             </button>
