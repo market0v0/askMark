@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { message } from 'antd'
 import useLazyFetchData from '@/hooks/useLazyFetchData'
@@ -7,28 +7,32 @@ import checkToken from '@/utils/functions/checkToken'
 
 const useValidTokenRedirect = (link: string): boolean => {
   const router = useRouter()
+  const [isvalid, setIsvalid] = useState<boolean>(false)
   const [validToken, loading] = useLazyFetchData(`${config.BACKEND_ENDPOINT}/getData`)
 
   useEffect(() => {
-    const run = async (): Promise<void> => {
-      try {
-        const valid = await validToken()
-        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-        if (!valid?.valid) {
-          void router.push(link)
+    if (checkToken() != null) {
+      setIsvalid(loading.loading)
+      const run = async (): Promise<void> => {
+        try {
+          const valid = await validToken()
+          // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+          if (!valid?.valid) {
+            void router.push(link)
+          }
+          // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+          if (valid?.valid) {
+            void router.push('/home')
+          }
+        } catch (error: any) {
+          void message.error('Session Expired')
         }
-        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-        if (valid?.valid) {
-          void router.push('/home')
-        }
-      } catch (error: any) {
-        void message.error('Session Expired')
       }
+      void run()
     }
-    void run()
   }, [checkToken()])
 
-  return loading.loading
+  return isvalid
 }
 
 export default useValidTokenRedirect

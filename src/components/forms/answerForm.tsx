@@ -11,13 +11,15 @@ interface QuestionProps {
   question: string
   status: boolean
   getanswer: string
+  onSubmit: () => void
 }
 
 const AnswerForm: React.FC<QuestionProps> = ({
   question,
   questionId,
   status,
-  getanswer
+  getanswer,
+  onSubmit
 }) => {
   const [answer, setAnswer] = useState(getanswer)
   const [isSubmitted, setIsSubmitted] = useState(status)
@@ -57,6 +59,11 @@ const AnswerForm: React.FC<QuestionProps> = ({
     }
   }
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault()
+    void submitForm()
+  }
+
   useEffect(() => {
     if (data === null || data === undefined) {
       return
@@ -71,7 +78,7 @@ const AnswerForm: React.FC<QuestionProps> = ({
   }, [data])
 
   return (
-    <div className='font-poppins flex flex-col gap-4 '>
+    <form onSubmit={handleSubmit} className='font-poppins flex flex-col gap-4 '>
       <div className=' bg-[#8062B0] w-full p-4' ref={formRef}>
         <div className='relative col-span-1 h-[4rem] w-full  border-b-2 border-dashed border-black'>
           <Image src={'/log.svg'} fill alt='marked' />
@@ -123,13 +130,13 @@ const AnswerForm: React.FC<QuestionProps> = ({
         <button
           className='rounded-xl bg-[#880AA8] px-20 py-2 text-white hover:bg-slate-600'
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          onClick={submitForm}
+          type="submit"
           disabled={status}
         >
           Send Answer
         </button>
       )}
-    </div>
+    </form>
   )
 }
 

@@ -23,6 +23,11 @@ const QandACarD: React.FC<QuestionProps> = ({
   date
 }) => {
   const [isModalVisible, setIsModalVisible] = useState(false)
+  const [answered, setAnswered] = useState(status)
+
+  const handleFormSubmit = (): void => {
+    setAnswered(true)
+  }
 
   const displayQuestion =
     question.length > 30 ? question.substring(0, 40) + '...' : question
@@ -36,7 +41,7 @@ const QandACarD: React.FC<QuestionProps> = ({
   }
 
   return (
-    <Badge dot={!status} color='red'>
+    <Badge dot={!answered} color='red'>
 
     <div className='font-poppins flex md:w-[80%] w-[72vw] md:min-w-[35rem] flex-col text-white justify-between rounded-2xl bg-[#8062B0] p-2 lg:flex-row '>
       <div className='grid w-full grid-cols-5 items-center py-2 pt-2'>
@@ -62,6 +67,7 @@ const QandACarD: React.FC<QuestionProps> = ({
           questionId={id}
           status={status}
           getanswer={answer}
+          onSubmit={handleFormSubmit}
         />
       </CustomModal>
     </div>

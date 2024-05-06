@@ -9,18 +9,19 @@ const useValidToken = (): boolean => {
   const [isvalid, setIsvalid] = useState<boolean>(false)
 
   useEffect(() => {
-    const run = async (): Promise<void> => {
-      try {
-        const valid = await validToken()
-        setIsvalid(valid?.valid)
+    if (checkToken() != null) {
+      const run = async (): Promise<void> => {
+        try {
+          const valid = await validToken()
+          setIsvalid(valid?.valid)
         // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions, eqeqeq
-      } catch (error: any) {
-        void message.error('Session Expired')
+        } catch (error: any) {
+          void message.error('Session Expired')
+        }
       }
+      void run()
     }
-    void run()
   }, [checkToken()])
-
   return isvalid
 }
 

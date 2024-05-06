@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PrimaryBtn from '../inputs/primaryBtn'
 import QandACarD from './qandaCard'
 import { type Question } from '@/handlers'
@@ -33,7 +33,9 @@ const QForm: React.FC<QFormProps> = ({ questions }) => {
     indexOfFirstQuestion,
     indexOfLastQuestion
   )
-
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [filter])
   const paginate = (pageNumber: number): any => {
     setCurrentPage(pageNumber)
   }
