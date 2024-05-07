@@ -22,6 +22,7 @@ const DefaultNav: React.FC = () => {
   const [validToken, loading] = useLazyFetchData(`${config.BACKEND_ENDPOINT}/getData`)
   const [username, setUsername] = useState<string>('')
   useEffect(() => {
+    if (checkToken() == null) return
     const run = async (): Promise<void> => {
       try {
         const data = await validToken()
